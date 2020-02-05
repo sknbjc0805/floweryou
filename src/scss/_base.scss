@@ -1,0 +1,41 @@
+/* base */
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    background-color: $c-main;
+    color: $c-primary;
+
+    // @include sp() {
+    //     font-size: 1.3rem;
+    // }
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    vertical-align: bottom;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}

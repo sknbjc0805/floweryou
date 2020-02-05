@@ -1,0 +1,79 @@
+/* flow */
+
+.flow {
+  background: url(../../img/arrangement/flow/bg01.png) no-repeat center center/cover;
+
+  @media screen and (min-resolution: 2dppx) {
+    background: url(../../img/arrangement/flow/bg01@2x.png) no-repeat center center/cover;
+  }
+
+  padding-bottom: 80px;
+
+  &-ttl {
+    margin-bottom: 30px;
+
+    @include sp() {
+      margin-bottom: 40px;
+    }
+  }
+
+  &-list {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.step {
+  padding: 11px 4% 24px 9%;
+  border: 5px solid $c-main;
+  box-shadow: 3px 3px 6px $c-shadow;
+  position: relative;
+
+  @include sp() {
+    padding: 11px 5% 24px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 60px;
+
+    &::after {
+      content: "";
+      background: url(../../img/common/general/arrow01.svg) no-repeat center center/contain;
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &-ttl {
+    margin-bottom: 10px;
+  }
+
+  &-no {
+    @include fontsetting(64, 64, 0.06);
+
+    @include sp() {
+      @include fontsetting(58, 58, 0.06);
+    }
+
+    &::after {
+      content: "\0020"; //半角スペース
+    }
+  }
+
+  &-name {
+    @include fontsetting(40, 48, 1.6);
+
+    @include sp() {
+      @include fontsetting(32, 40, 0.06);
+    }
+  }
+
+  &-txt {
+    @include fontsetting(16, 24, 0.48, false);
+  }
+}

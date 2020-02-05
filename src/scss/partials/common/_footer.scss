@@ -1,0 +1,17 @@
+/* footer */
+
+.footer {
+  padding: 26px 0 8px;
+
+  &-menu {
+    margin-bottom: 20px;
+  }
+
+  .gmenu {
+    margin-bottom: 5px;
+  }
+
+  &-copyright {
+    @include fontsetting(14, 40, 0.01);
+  }
+}

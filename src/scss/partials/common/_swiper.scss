@@ -1,0 +1,54 @@
+/* swiper */
+
+.swiper-container {
+  z-index: 0;
+  padding-left: 30px;
+}
+
+#swiper-pagination {
+  bottom: 0px;
+  padding: 25px 0;
+  position: relative;
+
+  @include sp() {
+    padding: 50px 0;
+    text-align: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background: $c-primary;
+    opacity: 1;
+    margin: 0 10px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      background: $c-main;
+      border-radius: 100%;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    position: relative;
+
+    &::after {
+      background: url(../../img/common/general/icon_flower-sm.svg) no-repeat center center/20px 20px;
+
+      content: "";
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

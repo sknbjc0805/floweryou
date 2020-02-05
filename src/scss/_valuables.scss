@@ -1,0 +1,24 @@
+//色変数定義
+$c-main:      #3E1900;
+$c-primary:   #AEAB92;
+$c-secondary: #96743B;
+$c-tertiary:  #96864E;
+$c-quaternary:#DFD9A0;
+$c-accent:    #A22041;
+$c-white:     #FFF;
+$c-dark:      #00000029;
+$c-shadow:    #00000080;
+
+//ブレークポイント（基本的なブレイクポイント→md その他は見栄え調整用）
+$w-breakpoint-lg: 1000;
+$w-breakpoint-md: 760;
+$w-breakpoint-sm: 600;
+
+//インナー幅
+$w-sm: 800px;
+$w-md: 934px;
+$w-lg: 1086px;
+$w-xl: 1366px;
+
+//インナー幅左右padding
+$w-padding: 5%;

@@ -1,0 +1,92 @@
+/* faq */
+
+.faq {
+  position: relative;
+  padding-bottom: 80px;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    top: 0;
+    background: url(../../img/arrangement/faq/bg01.svg) repeat-y center center/contain;
+
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &-ttl {
+    margin-bottom: 36px;
+  }
+}
+
+.qa {
+  max-width: 600px;
+  width: 80%;
+  margin: 0 auto;
+  @include fontsetting(16, 22, 0.48, false);
+  cursor: pointer;
+
+  &+& {
+    border-top: 1px solid $c-secondary;
+  }
+
+  &-q {
+    padding: 12px 0;
+
+    &.flex {
+      justify-content: flex-start;
+    }
+
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f107";
+      @include fontsetting(20, 24, 0);
+      color: $c-accent;
+
+      @include pc() {
+        margin-right: 34px;
+      }
+    }
+
+    &.open {
+      &::before {
+        content: "\f106";
+      }
+    }
+
+    &-ttl {
+      @include sp() {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &-a {
+    padding: 15px 0 15px 45px;
+    display: none;
+
+    @include sp() {
+      padding: 15px 0;
+    }
+
+    &-outline {
+      padding: 5px;
+      border: 1px solid $c-secondary;
+    }
+
+    &-txt {
+      padding: 10px;
+      border: 1px solid $c-secondary;
+    }
+  }
+}

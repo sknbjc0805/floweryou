@@ -1,0 +1,65 @@
+/* why */
+
+.why {
+  padding-bottom: 38px;
+
+  .inner {
+    padding: 0;
+  }
+
+  &-row {
+
+    &.flex {
+      align-items: flex-start;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+
+    &:not(:nth-child(2n)) {
+
+      .why-wrap--desc {
+        order: 1;
+
+        @include sp() {
+          order: 0;
+        }
+      }
+    }
+  }
+
+  &-wrap {
+    width: 50%;
+
+    @include sp() {
+      width: 100%;
+    }
+
+    &--desc {
+      padding: 0 2.7% 40px 3%;
+    }
+  }
+
+  &-ttl {
+    margin-bottom: 42px;
+  }
+
+  &-txt {
+    @include fontsetting(22, 28, 0.66);
+    padding: 23px 3.3%;
+    border: 1px solid $c-secondary;
+
+    @include sp() {
+      @include fontsetting(18, 24, 0.66);
+    }
+  }
+
+  &-img {
+    width: 50%;
+
+    @include sp() {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,279 @@
+.reservation {
+
+  &-overlay {
+    display: none;
+
+    &.open {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 999;
+      background-color: rgba(62, 62, 62, .7);
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-content {
+    background-color: $c-accent;
+    height: 100%;
+    padding: 10% 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translate(140%);
+    transition: all .2s;
+    width: 40%;
+    z-index: 9999;
+
+    @include sp-sm() {
+      width: 70%;
+      padding: 30% 0;
+    }
+
+    &.open {
+      transform: translate(0);
+    }
+  }
+
+  &-decoration {
+    background: url(../../img/common/general/icon_flower-lg.svg) no-repeat 20px center/32px 32px;
+    background-color: $c-accent;
+    border-bottom-left-radius: 60px 60px;
+    border-top-left-radius: 60px 60px;
+    position: absolute;
+    height: 60px;
+    left: -65px;
+    bottom: 20px;
+    width: 80%;
+  }
+
+
+  //ドロワークローズマーク
+  &-close {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 8px;
+    left: -20px;
+    width: 1px;
+    height: 25px;
+    background: $c-primary;
+    transform: rotate(45deg);
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -12px;
+      width: 25px;
+      height: 1px;
+      background: $c-primary;
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  //ドロワーオープンマーク
+  &-open {
+    cursor: pointer;
+    z-index: 997;
+    display: none;
+    background-color: rgba(162, 32, 65, .9);
+
+    &--pc {
+      @include sp() {
+        display: none;
+      }
+
+      &.show {
+        @include pc() {
+          display: block;
+          @include gradualShow(1.2s,ease-in-out);
+        }
+      }
+
+      position: fixed;
+      bottom: 30px;
+      right: -150px;
+      width: 500px;
+      transform: rotate(-45deg);
+      height: 60px;
+      line-height: 60px;
+      padding: 7px 0;
+      color: $c-quaternary;
+      box-sizing: border-box;
+      text-align: center;
+      transition: all .5s linear 0s;
+
+      .open-ttl {
+        margin: 0;
+        font-weight: normal;
+        border-top: dashed 2px $c-white;
+        border-bottom: dashed 2px $c-white;
+        line-height: 42px;
+        font-size: 2.8rem;
+
+        &::before {
+          content: "\02003"; //全角スペース付与
+        }
+
+        &--sm {
+          font-size: 2.2rem;
+        }
+      }
+
+      &:hover {
+        background-color: lighten($c-accent, 12%);
+      }
+    }
+
+    &--sp {
+      @include pc() {
+        display: none;
+      }
+
+      &.show {
+        @include sp() {
+          display: block;
+          @include gradualShow(.8s,ease-in-out);
+        }
+      }
+
+      max-width: 200px;
+      position: fixed;
+      bottom: 20px;
+      right: 0;
+
+      .open-ttl {
+        font-size: 2.2rem;
+        line-height: 60px;
+
+        &--sm {
+          font-size: 1.8rem;
+        }
+
+        &::before {
+          content: "";
+          background: url(../../img/common/general/icon_flower-lg.svg) no-repeat center center/32px 32px;
+          width: 32px;
+          height: 32px;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
+
+//ドロワー上の営業情報
+.info {
+  position: relative;
+  padding: 26px 0;
+  margin: 0 10%;
+  margin-bottom: 75px;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 6px;
+    border-top: 1px solid $c-main;
+    border-bottom: 1px solid $c-main;
+    position: absolute;
+  }
+
+  &::before {
+    top: 0;
+    right: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  &-row {
+    align-items: flex-start;
+    @include fontsetting(22, 34, 0.02);
+
+    @include sp() {
+      @include fontsetting(16, 28, 0.02);
+    }
+
+    @include sp() {
+      flex-wrap: nowrap;
+    }
+
+    &:not(:last-child) {
+      .info-ttl {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &-ttl {
+    width: 40%;
+    padding-right: 5px;
+  }
+
+  &-content {
+    flex: 1;
+  }
+}
+
+//ドロワー上の連絡ボタン
+.cta {
+  margin-left: auto;
+  max-width: 250px;
+  display: block;
+  @include fontsetting(22, 34, 0.54);
+  z-index: 10000;
+  position: relative;
+  cursor: pointer;
+
+  @include sp() {
+    min-width: 200px;
+    font-size: 1.8rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &-wrapper {
+    text-align: right;
+  }
+
+  &-ttl {
+    line-height: 60px;
+
+    &::before {
+      color: $c-secondary;
+      font-family: "Font Awesome 5 Free";
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0 10px;
+    }
+
+    &--tel {
+      &::before {
+        content: "\f2a0";
+      }
+    }
+
+    &--web {
+      &::before {
+        content: "\f26c";
+
+        @include sp() {
+          content: "\f3cd";
+        }
+      }
+    }
+  }
+}

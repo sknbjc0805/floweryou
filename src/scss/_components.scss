@@ -1,0 +1,344 @@
+/* component */
+
+/* インナー */
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $w-padding;
+}
+
+/* 最大幅 */
+.w-sm {
+  max-width: calc(#{$w-sm} + #{$w-padding} * 2);
+}
+
+.w-md {
+  max-width: calc(#{$w-md} + #{$w-padding} * 2);
+}
+
+.w-lg {
+  max-width: calc(#{$w-lg} + #{$w-padding} * 2);
+}
+
+.w-xl {
+  max-width: calc(#{$w-xl} + #{$w-padding} * 2);
+}
+
+/* タイトル */
+.ttl {
+  font-weight: normal;
+
+  &--lg {
+    @include fontsetting(40, 40, 1.6);
+
+    @include sp() {
+      @include fontsetting(32, 40, 1.6);
+    }
+  }
+
+  &--sm {
+    @include fontsetting(28, 28, 1.12);
+
+    @include sp() {
+      @include fontsetting(25, 33, 1.12);
+    }
+  }
+
+  &--line {
+    position: relative;
+
+    //タイトルの左右にライン
+    @include pc() {
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        height: 3px;
+        background-color: $c-accent;
+      }
+
+      &::before {
+        left: 0;
+        margin-right: 3%;
+        background: linear-gradient(-90deg, $c-accent, transparent);
+      }
+
+      &::after {
+        right: 0;
+        margin-left: 3%;
+        background: linear-gradient(90deg, $c-accent, transparent);
+      }
+
+      &--sm {
+
+        &::before,
+        &::after {
+          max-width: 150px;
+          width: 30%;
+          z-index: -1;
+
+          @include pc-sm(){
+            max-width: 100px;
+            width: 15%;
+          }
+        }
+      }
+
+      &--lg {
+
+        &::before,
+        &::after {
+          max-width: 250px;
+          width: 30%;
+        }
+      }
+    }
+
+    //タイトルの下にライン
+    @include sp() {
+      &::before {
+        background: linear-gradient(to right, transparent, $c-accent 25%, $c-accent 75%, transparent);
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        width: 50%;
+        height: 3px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* テキストカラー */
+.txt {
+
+  &--main {
+    color: $c-main;
+  }
+
+  &--secondary {
+    color: $c-secondary;
+  }
+
+  &--tertiary {
+    color: $c-tertiary;
+  }
+
+  &--accent {
+    color: $c-accent;
+  }
+
+}
+
+/* 背景カラー */
+.bg {
+
+  &--white {
+    background-color: $c-white;
+  }
+
+}
+
+/* ボタン */
+.btn {
+  @include fontsetting(22, 30, 0.44);
+  font-weight: bold;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, .8);
+  padding: 25px 1%;
+  box-shadow: 3px 3px 6px $c-shadow;
+  border: 5px solid $c-main;
+  max-width: 240px;
+  width: 100%;
+  transition: all .5s ease-in-out 0s;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    @include fontsetting(30, 30, 0);
+    margin-right: 10px;
+    color: $c-secondary;
+  }
+
+  &--tel {
+    &::before {
+      content: "\f2a0";
+    }
+  }
+
+  &--web {
+    &::before {
+      content: "\f26c";
+
+      @include sp(){
+        content: "\f3cd";
+      }
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+
+
+
+.round {
+  border-bottom-left-radius: 60px 60px;
+  border-top-left-radius: 60px 60px;
+  width: 80%;
+  height: 60px;
+  transition: all .5s linear 0s;
+
+  &--main {
+    background-color: $c-main;
+
+    &:hover {
+      background-color: lighten($c-main, 10%);
+    }
+  }
+
+  &--accent {
+    background-color: $c-accent;
+
+    &:hover {
+      background-color: lighten($c-accent, 12%);
+    }
+  }
+}
+
+/* グローバルメニュー ホバー */
+
+.gmenu {
+
+  &-hover {
+    transition: all .3s ease 0s;
+
+    &:hover {
+      color: $c-tertiary;
+    }
+  }
+}
+
+/* padding-top */
+.pt {
+
+  &--lg {
+    padding-top: 80px;
+  }
+
+  &--md {
+    padding-top: 40px;
+  }
+
+  &--sm {
+    padding-top: 35px;
+  }
+
+}
+
+/* flex */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include sp() {
+    flex-wrap: wrap;
+  }
+
+  &--alwayswrap {
+    flex-wrap: wrap;
+  }
+}
+
+/* 中央寄せ */
+.center {
+  text-align: center;
+}
+
+/* リボンタイトル */
+.ribbon-wrapper {
+  bottom: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+  background: transparent;
+  width: 100%;
+}
+
+.course-wrap {
+  position: relative;
+}
+
+.ribbon {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 5px 0;
+  width: calc(100% + 10px);
+  color: $c-quaternary;
+  background: $c-accent;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 0 0 -10px;
+
+
+  &-ttl {
+    margin: 0;
+    padding: 0 10px;
+    border-top: dashed 1px $c-white;
+    border-bottom: dashed 1px $c-white;
+    font-size: 2rem;
+    line-height: 35px;
+    
+    @include sp-sm(){
+      font-size: 1.8rem;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 10px #5A2230;
+  }
+}
+
+/* グローバルメニュー */
+.gmenu {
+  padding: 0 10px;
+
+  &:not(:last-child) {
+    border-right: 1px solid $c-accent;
+  }
+}
+
+/* 表示アニメーション */
+@keyframes gradualShow {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin gradualShow($duration, $timing) {
+  animation-name: gradualShow;
+  animation-duration: $duration;
+  animation-timing-function: $timing;
+}

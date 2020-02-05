@@ -1,0 +1,255 @@
+/* header */
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: $c-main;
+  z-index: 998;
+
+  @include sp() {
+    height: 56px;
+  }
+
+  &-inner {
+
+    &.flex {
+      justify-content: space-between;
+    }
+
+  }
+
+  &-logo {
+    transition: all 2s ease-in-out 0s;
+
+    &-link {
+      width: 100%;
+    }
+
+    &--pc {
+      opacity: 0;
+
+      &.show {
+        @include gradualShow(1.2s,linear);
+        animation-fill-mode: forwards;
+      }
+
+      @include sp() {
+        display: none;
+      }
+    }
+
+    &--sp {
+      display: none;
+      @include sp(){
+        display: block;
+        opacity: 0;
+      }
+
+      &.show {
+        @include sp() {
+          @include gradualShow(1s,linear);
+          animation-fill-mode: forwards;
+        }
+      }
+
+      @include sp() {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+
+        img {
+          width: 85%;
+        }
+      }
+    }
+  }
+
+  nav {
+    @include sp() {
+      width: 100%;
+    }
+  }
+}
+
+/* drawer */
+
+//drawerライブラリをカスタマイズ
+
+.drawer-nav {
+  width: 50%;
+  height: 100%;
+  background: $c-main;
+
+  @include sp-sm() {
+    width: 70%;
+  }
+
+  @include pc() {
+    width: 100%;
+    height: 80px;
+    background: none;
+  }
+}
+
+.drawer--right {
+
+  .drawer-nav {
+    right: -50%;
+
+    @include sp-sm() {
+      right: -70%;
+    }
+
+    @include pc() {
+      right: 0;
+    }
+  }
+
+  .drawer-hamburger {
+    right: 16px;
+
+    @include pc() {
+      display: none;
+    }
+  }
+
+  &.drawer-open {
+    .drawer-hamburger {
+      right: 50%;
+
+      @include sp-sm() {
+        right: 70%;
+      }
+
+    }
+  }
+}
+
+.drawer-menu {
+
+  @include sp() {
+    padding: 30% 0;
+  }
+
+  &.flex {
+    justify-content: space-between;
+  }
+
+  @include pc() {
+    height: 80px;
+  }
+
+  &-list {
+    &.flex {
+      @include sp() {
+        flex-direction: column;
+      }
+    }
+
+    @include sp() {
+      width: 100%;
+      padding: 0 10%;
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 6px;
+        display: block;
+        border-top: 1px solid $c-primary;
+        border-bottom: 1px solid $c-primary;
+      }
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: 6px;
+        display: block;
+        border-top: 1px solid $c-primary;
+        border-bottom: 1px solid $c-primary;
+      }
+    }
+  }
+
+  &-block {
+    @include pc() {
+
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+    }
+
+    @include sp() {
+      padding-top: 20px;
+
+      &:last-child {
+        padding-bottom: 20px;
+      }
+
+      &.gmenu {
+        border-right: none;
+      }
+    }
+  }
+
+  &-item {
+    @include fontsetting(18, 25, 0.02);
+    padding: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.drawer-hamburger {
+  width: 2.5rem;
+  padding: 10px .75rem 30px;
+
+  @mixin hamnurger-icon-common {
+    height: 1px;
+    background-color: $c-accent;
+  }
+
+  &-icon {
+
+    @include hamnurger-icon-common;
+
+    &::before {
+      @include hamnurger-icon-common;
+      top: -6px;
+    }
+
+    &::after {
+      @include hamnurger-icon-common;
+      top: 6px;
+    }
+
+  }
+
+  &-ttl {
+    @include fontsetting(12, 16, 0.01);
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
+}
+
+.drawer-open .drawer-hamburger-icon {
+  .drawer-hamburger-ttl {
+    display: none;
+  }
+}
+
+.drawer-overlay {
+  background-color: rgba(62, 62, 62, .7);
+}

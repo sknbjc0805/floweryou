@@ -1,0 +1,50 @@
+/* mv */
+
+.mv {
+  background: url(../../img/arrangement/mv/bg01.png) no-repeat center center/cover;
+
+  @media screen and (min-resolution: 2dppx) {
+    background: url(../../img/arrangement/mv/bg01@2x.png) no-repeat center center/cover;
+  }
+
+  width: 100%;
+  padding: 243px 0 197px;
+
+  @include gradualShow(1.8s,ease-in-out);
+
+  @include sp() {
+    text-align: center;
+    padding: 200px 0 98px;
+  }
+
+  &-logo {
+    width: 300px;
+    height: 160px;
+
+
+    @include sp() {
+
+      margin: 0 calc(50% - 50vw);
+      width: 100vw;
+      height: 188px;
+
+    }
+
+    background-color:rgba(255, 255, 255, .6);
+    display: inline-block;
+    position: relative;
+
+    &-img {
+      width: 75%;
+      max-width: 240px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @include sp() {
+      margin-bottom: 34px;
+    }
+  }
+}
